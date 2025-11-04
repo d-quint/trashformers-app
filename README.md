@@ -81,7 +81,7 @@ Key Python dependencies (see `backend/requirements.txt`):
 - **flask-cors** – enables cross-origin requests from the frontend.
 - **ultralytics** – YOLOv8 model loading and inference.
 - **pillow** – image decoding and preprocessing.
-- **uvicorn** – ASGI server for local development (hot reload friendly).
+- **gunicorn** – Production-grade WSGI server for the Flask API.
 
 #### 3.3 Provide YOLO Weights
 
@@ -96,13 +96,13 @@ If you do not have a model yet, you can train one with Ultralytics YOLO or reque
 
 #### 3.4 Launch The API
 
-Using Uvicorn (recommended):
+Using Gunicorn (production-like):
 
 ```powershell
-uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+gunicorn app:app --bind 0.0.0.0:8000 --workers 1 --timeout 120
 ```
 
-Alternatively, run the Flask development server:
+Alternatively, run the Flask development server (single-threaded, auto reload):
 
 ```powershell
 python app.py
@@ -291,7 +291,7 @@ You can adjust detection thresholds by tweaking `iou` and `conf` values in the `
 
 1. Provision a server (Render, AWS, etc.) with Python 3.10+ and enough RAM for YOLO.
 2. Copy the `backend/` folder, install requirements, and upload the weight file.
-3. Launch with `uvicorn app:app --host 0.0.0.0 --port $PORT`.
+3. Launch with `gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120`.
 4. Expose `/health` for platform health checks.
 
 **Frontend**
@@ -316,7 +316,8 @@ You can adjust detection thresholds by tweaking `iou` and `conf` values in the `
 | Task                                 | Command |
 |--------------------------------------|---------|
 | Install backend deps                 | `pip install -r backend/requirements.txt` |
-| Start backend (uvicorn)              | `uvicorn app:app --host 0.0.0.0 --port 8000 --reload` |
+| Start backend locally (gunicorn)     | `gunicorn app:app --bind 0.0.0.0:8000 --workers 1 --timeout 120` |
+| Start backend in Render (gunicorn)   | `gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120` |
 | Start backend (Flask)                | `python backend/app.py` |
 | Install frontend deps                | `npm install` |
 | Run frontend dev server              | `npm run dev` |

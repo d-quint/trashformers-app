@@ -39,10 +39,10 @@ pip install -r requirements.txt
 ## Running locally
 
 ```bash
-uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+gunicorn app:app --bind 0.0.0.0:8000 --workers 1 --timeout 120
 ```
 
-> Alternatively run `python app.py` which uses Flask's built-in development server.
+> Alternatively run `python app.py` for the built-in Flask development server (auto-reload, single worker).
 
 ## API
 
@@ -95,9 +95,8 @@ Render provides persistent containerized services, perfect for running the YOLO 
   ```
 7. Set the **Start Command** to:
   ```bash
-  uvicorn app:app --host 0.0.0.0 --port 10000
+  gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
   ```
-  Render injects the port via `$PORT`; you can also use `--port $PORT`.
 
 ### 3. Environment settings
 
@@ -112,7 +111,7 @@ If the model file is not committed to the repo (because of size), add a **start 
 
 ```bash
 curl -L $MODEL_URL -o models/trash_classifier.pt
-uvicorn app:app --host 0.0.0.0 --port $PORT
+gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
 ```
 
 ### 4. Provision memory
