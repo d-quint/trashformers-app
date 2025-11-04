@@ -24,7 +24,7 @@ Optional but recommended:
 ### 2. Clone The Repository
 
 ```bash
-git clone https://github.com/your-org/trashformers.git
+git clone https://github.com/d-quint/trashformers.git
 cd trashformers/trashformers-app
 ```
 
