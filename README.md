@@ -92,7 +92,7 @@ mkdir models
 copy C:\path\to\trash_classifier.pt .\models\trash_classifier.pt
 ```
 
-If you do not have a model yet, you can train one with Ultralytics YOLO or request the pre-trained checkpoint from your team.
+If you do not have a model yet, you can train one with Ultralytics YOLO or request the pre-trained checkpoint.
 
 #### 3.4 Launch The API
 
