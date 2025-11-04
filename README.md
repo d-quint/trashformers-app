@@ -2,6 +2,8 @@
 
 Trashformers is a computer-vision recycling assistant. A Next.js frontend captures or uploads images, while a Flask + YOLOv8 backend segments recyclable materials (plastic, paper, metal). This README walks through everything required to get the project running locally and explains the architecture so you can extend it confidently.
 
+[▶️ Watch a full setup walkthrough](https://drive.google.com/file/d/10i32D6zf3rRO2_bczgr6mMoB_CB5uuaL/view?usp=sharing)
+
 ---
 
 ### 1. Prerequisites
