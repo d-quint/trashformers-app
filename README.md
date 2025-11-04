@@ -25,7 +25,7 @@ Optional but recommended:
 
 ```bash
 git clone https://github.com/d-quint/trashformers-app.git
-cd trashformers-app/trashformers-app
+cd trashformers-app
 ```
 
 The repo contains a Next.js application at the root and a backend folder under `backend/`.
@@ -55,7 +55,7 @@ The backend exposes a `/segment` endpoint that accepts an image, runs YOLOv8 seg
 ```powershell
 cd backend
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+.\.venv\Scripts\activate
 ```
 
 **macOS/Linux (bash/zsh)**
