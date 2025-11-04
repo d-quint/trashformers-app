@@ -24,8 +24,8 @@ Optional but recommended:
 ### 2. Clone The Repository
 
 ```bash
-git clone https://github.com/d-quint/trashformers.git
-cd trashformers/trashformers-app
+git clone https://github.com/d-quint/trashformers-app.git
+cd trashformers-app/trashformers-app
 ```
 
 The repo contains a Next.js application at the root and a backend folder under `backend/`.
