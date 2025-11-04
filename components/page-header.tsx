@@ -13,7 +13,7 @@ export function PageHeader() {
             Trashformers
           </p>
           <h1 className="text-2xl font-semibold text-white leading-tight sm:text-[2.2rem]">
-            See what's recyclable in a snap
+            See what&apos;s recyclable in a snap
           </h1>
         </div>
       </div>
