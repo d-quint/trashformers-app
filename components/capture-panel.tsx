@@ -20,6 +20,7 @@ export function CapturePanel({
   processing,
   progress,
   className,
+  error,
 }: {
   assetName: string;
   captureInputRef: RefObject<HTMLInputElement | null>;
@@ -36,6 +37,7 @@ export function CapturePanel({
   processing: boolean;
   progress: number;
   className?: string;
+  error?: string | null;
 }) {
   return (
     <div
@@ -81,7 +83,7 @@ export function CapturePanel({
         </div>
       </div>
 
-      <p className="mt-3 text-xs text-slate-400">Tip: place the trash on a flat, well-lit surface for best detection.</p>
+      <p className="mt-3 text-xs text-slate-400">Tip: place the trash on a flat, well-lit surface for best detection results/accuracy.</p>
 
       <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={onFileChange} />
       <input
@@ -101,7 +103,12 @@ export function CapturePanel({
                 <p className="text-sm font-medium text-white">
                   {processing ? "Segmenting your photo..." : hasResult ? "All set!" : "Ready to segment"}
                 </p>
-                <p className="text-xs text-slate-400">{assetName || "Captured photo"}</p>
+                <p
+                  className="truncate text-xs text-slate-400"
+                  title={assetName || "Captured photo"}
+                >
+                  {assetName || "Captured photo"}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-2">
@@ -133,6 +140,9 @@ export function CapturePanel({
               style={{ width: `${progress}%` }}
             />
           </div>
+          {error ? (
+            <p className="text-sm font-medium text-rose-300">{error}</p>
+          ) : null}
           <p className="text-right text-xs text-slate-400">
             {processing ? `${Math.round(progress)}%` : hasResult ? "Finished" : ""}
           </p>

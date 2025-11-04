@@ -16,7 +16,7 @@ export function MaterialSummary({
   total,
   className,
 }: {
-  breakdown: Array<{ chip: string; label: string; value: number }>;
+  breakdown: Array<{ chip: string; label: string; value: number; color: string }>;
   status: "updated" | "processing" | "waiting";
   total: number;
   className?: string;
@@ -34,12 +34,7 @@ export function MaterialSummary({
   const pieChartData = breakdown.map((item) => ({
     label: item.label,
     value: item.value,
-    color:
-      item.label === "Plastic"
-        ? "hsl(158, 64%, 52%)" // emerald-400
-        : item.label === "Paper"
-          ? "hsl(199, 89%, 48%)" // sky-400
-          : "hsl(38, 92%, 50%)", // amber-400
+    color: item.color,
   }));
 
   return (
