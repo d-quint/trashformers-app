@@ -47,19 +47,7 @@ const MATERIAL_META: Record<string, { chip: string; pieColor: string; overlay: s
     pieColor: "hsl(38 92% 50%)",
     overlay: "hsla(38, 92%, 50%, 0.32)",
     stroke: "hsla(38, 92%, 50%, 0.75)",
-  },
-  Glass: {
-    chip: "bg-cyan-400",
-    pieColor: "hsl(189 79% 56%)",
-    overlay: "hsla(189, 79%, 56%, 0.32)",
-    stroke: "hsla(189, 79%, 56%, 0.75)",
-  },
-  Organic: {
-    chip: "bg-lime-400",
-    pieColor: "hsl(90 70% 50%)",
-    overlay: "hsla(90, 70%, 50%, 0.32)",
-    stroke: "hsla(90, 70%, 50%, 0.75)",
-  },
+  }
 };
 
 const DEFAULT_META = {
